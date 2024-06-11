@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import "primeflex/primeflex.css";
+import { StyleClass } from 'primereact/styleclass';
+import { PrimeReactProvider } from "primereact/api";
+import HeadlessDemo from "./components/Slidebar";
+import {BrowserRouter , Route , Router, Routes} from "react-router-dom";
+import Forecasting from "./components/Main";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <PrimeReactProvider>
+        <BrowserRouter>
+        <HeadlessDemo/>
+        <Routes>  
+          <Route path="/Main" element={<Forecasting/>}/>
+        </Routes>
+        </BrowserRouter>
+    </PrimeReactProvider>
+  )
 }
-
-export default App;
