@@ -55,7 +55,7 @@ const Forecasting = () => {
           </div>
           <div style={{ marginBottom: '1rem', display: 'flex' }}>
             <label htmlFor="endMonth" style={{ display: 'block', margin: '0.5rem' }}>End Month: </label>
-            <input type="text" id="endMonth" value={endMonth} onChange={(e) => setEndMonth(e.target.value)}
+            <input type="date" id="endMonth" value={endMonth} onChange={(e) => setEndMonth(e.target.value)}
               style={{
                 width: '300px',
                 padding: '0.5rem',
