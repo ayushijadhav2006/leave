@@ -1,7 +1,21 @@
 import React, { useState } from 'react';
+import { Dropdown } from 'primereact/dropdown';
 import { Ripple } from 'primereact/ripple';
-
+        
+        
 const Audit= () => {
+  const [selectedLeave, setLeavespan] = useState(null);
+    const Leave = [
+        { name: 'Half Day', code: 'HF' },
+        { name: 'Full day', code: 'FH' },
+    ];
+    const [selectedholiday, setholidaytype] = useState(null);
+    const Holiday = [
+        { name: 'Paternity Leave', code: 'PL' },
+        { name: 'Maternity Leave', code: 'ML' },
+        { name: 'Annual Leave', code: 'AL' },
+        { name: 'Outdoor Leave', code: 'OL' },
+    ];
   const [formData, setFormData] = useState({
     employeeId: '',
     holidayType: '',
@@ -53,13 +67,13 @@ const Audit= () => {
 
   const buttonStyle = {
     display: 'block',
-    width: '100px',
+    width: '100%',
     padding: '10px',
     backgroundColor: 'var(--primary-color)',
     color: 'white',
     border: 'none',
     borderRadius: '5px',
-    fontSize: '1rem',
+    fontSize: '16px',
     cursor: 'pointer',
   };
 
@@ -81,18 +95,14 @@ const Audit= () => {
           required
         />
       </div>
-      <div style={formGroupStyle}>
-        <label style={labelStyle} htmlFor="holidayType">Holiday Type:</label>
-        <input
-          style={inputStyle}
-          type="text"
-          id="holidayType"
-          name="holidayType"
-          value={formData.holidayType}
-          onChange={handleChange}
-          required
-        />
+
+
+      <div style={formGroupStyle} >
+        <label style={labelStyle}htmlFor="holidayType">Holiday Type:</label>
+      <Dropdown value={selectedholiday} onChange={(e) => setholidaytype(e.value)} options={Holiday} optionLabel="name" 
+                placeholder="Select a Type" className="w-full md:w-14rem" checkmark={true} highlightOnSelect={false} />
       </div>
+
       <div style={formGroupStyle}>
         <label style={labelStyle} htmlFor="startDate">Start Date:</label>
         <input
@@ -117,16 +127,15 @@ const Audit= () => {
           required
         />
       </div>
-<<<<<<< HEAD
-      <div className="bg-primary flex select-none justify-content-center align-items-center shadow-2 border-round p-2 font-bold p-ripple mb-2">
-    Predict
-    <Ripple />
-</div>
-=======
-      <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-      <button type="submit" style={{ ...buttonStyle, ':hover': buttonHoverStyle }}>Predict</button>
+      <div style={formGroupStyle}>
+      <label style={labelStyle} htmlFor="Half/Full Day">Half/Full Day:</label>
+      <Dropdown value={selectedLeave} onChange={(e) => setLeavespan(e.value)} options={Leave} optionLabel="name" 
+                placeholder="Select a Leave" className="w-full md:w-14rem" checkmark={true} highlightOnSelect={false} />
       </div>
->>>>>>> 5295aa9ebc284d42e2ef168af7f63caa0b0749f7
+      <div className="bg-primary flex select-none justify-content-center align-items-center shadow-2 border-round p-2 font-bold p-ripple mb-2">
+                Predict
+                <Ripple />
+            </div>
     </form>
   );
 };
