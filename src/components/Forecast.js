@@ -80,7 +80,7 @@ const Forecast = () => {
             <input type="text" id="endMonth" value={endMonth} onChange={(e) => setEndMonth(e.target.value)} style={inputStyle} required />
           </div>
 
-          <Link to={'/Graph'}><button type="submit" style={{ padding: '0.5rem 1rem', fontSize: '1rem', backgroundColor: 'var(--primary-color)', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer'}}>Predict</button></Link>
+          <Link to={'/Graph'}><button type="submit" style={{ ...buttonStyle, ':hover': buttonHoverStyle }}>Predict</button></Link>
         </form>
     </>
   );
