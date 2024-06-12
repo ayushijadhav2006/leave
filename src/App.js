@@ -4,7 +4,10 @@ import { PrimeReactProvider } from "primereact/api";
 import HeadlessDemo from "./components/Slidebar";
 import {BrowserRouter , Route , Router, Routes} from "react-router-dom";
 import Forecast from "./components/Forecast";
-import Prediction from "./components/Prediction";
+import Graph from "./components/Graph";
+import Audit from "./components/Audit";
+
+// import Prediction from "./components/Prediction";
 
 export default function App() {
   return (
@@ -13,7 +16,9 @@ export default function App() {
         <HeadlessDemo/>
         <Routes>  
           <Route path="/Forecast" element={<Forecast />}/>
-          <Route path="/Prediction" element={<Prediction />}/>
+          <Route path="/Graph" element={<Graph />}/>
+          <Route path="/Audit" element={<Audit />}/>
+
         </Routes>
         </BrowserRouter>
     </PrimeReactProvider>

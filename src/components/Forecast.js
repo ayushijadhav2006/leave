@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Forecast = () => {
   const [empId, setEmpId] = useState('');
@@ -9,7 +10,6 @@ const Forecast = () => {
   // Function to handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    // You can perform any further actions here, such as sending the form data to a server
     console.log({ empId, startYear, endYear, endMonth });
   };
 
@@ -55,7 +55,7 @@ const Forecast = () => {
           </div>
           <div style={{ marginBottom: '1rem', display: 'flex' }}>
             <label htmlFor="endMonth" style={{ display: 'block', margin: '0.5rem' }}>End Month: </label>
-            <input type="date" id="endMonth" value={endMonth} onChange={(e) => setEndMonth(e.target.value)}
+            <input type="text" id="endMonth" value={endMonth} onChange={(e) => setEndMonth(e.target.value)}
               style={{
                 width: '300px',
                 padding: '0.5rem',
@@ -65,7 +65,7 @@ const Forecast = () => {
                 border: '1px solid #ccc'
               }} required />
           </div>
-          <button type="submit" style={{ padding: '0.5rem 1rem', fontSize: '1rem', backgroundColor: 'var(--primary-color)', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer'}}>Predict</button>
+          <Link to={'/Graph'}><button type="submit" style={{ padding: '0.5rem 1rem', fontSize: '1rem', backgroundColor: 'var(--primary-color)', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer'}}>Predict</button></Link>
         </form>
       </div>
     </>

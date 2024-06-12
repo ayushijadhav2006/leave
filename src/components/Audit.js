@@ -1,7 +1,7 @@
-// src/HolidayForm.js
 import React, { useState } from 'react';
+import { Ripple } from 'primereact/ripple';
 
-const Prediction= () => {
+const Audit= () => {
   const [formData, setFormData] = useState({
     employeeId: '',
     holidayType: '',
@@ -30,6 +30,7 @@ const Prediction= () => {
     border: '1px solid #ccc',
     borderRadius: '10px',
     backgroundColor: '#f9f9f9',
+    marginTop: '32px',
   };
 
   const formGroupStyle = {
@@ -54,7 +55,7 @@ const Prediction= () => {
     display: 'block',
     width: '100%',
     padding: '10px',
-    backgroundColor: '#4CAF50',
+    backgroundColor: 'var(--primary-color)',
     color: 'white',
     border: 'none',
     borderRadius: '5px',
@@ -63,7 +64,7 @@ const Prediction= () => {
   };
 
   const buttonHoverStyle = {
-    backgroundColor: '#45a049',
+    backgroundColor: 'var(--primary-color)',
   };
 
   return (
@@ -116,14 +117,12 @@ const Prediction= () => {
           required
         />
       </div>
-      <button
-        type="submit"
-        style={{ ...buttonStyle, ':hover': buttonHoverStyle }}
-      >
-        Predict
-      </button>
+      <div className="bg-primary flex select-none justify-content-center align-items-center shadow-2 border-round p-2 font-bold p-ripple mb-2">
+    Predict
+    <Ripple />
+</div>
     </form>
   );
 };
 
-export default Prediction;
+export default Audit;

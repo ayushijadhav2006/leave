@@ -2,9 +2,6 @@ import 'primeicons/primeicons.css';
 import React, { useState, useRef } from 'react';
 import { Sidebar } from 'primereact/sidebar';
 import { Button } from 'primereact/button';
-import { Avatar } from 'primereact/avatar';
-import { Ripple } from 'primereact/ripple';
-import { StyleClass } from 'primereact/styleclass';
 import { Link } from 'react-router-dom';
 
 export default function HeadlessDemo() {
@@ -14,7 +11,7 @@ export default function HeadlessDemo() {
         <div className="card flex justify-content-center">
         <Sidebar visible={visible} onHide={() => setVisible(false)}>
             <div className='m-4'>
-            <Link to={'/'}><Button label='Decision Making' raised className='m-2'/></Link>
+            <Link to={'/Audit'}><Button label='Decision Making' raised className='m-2'/></Link>
             <Link to={'/Forecast'}><Button label='Leave Pattern' raised className='m-2'/></Link>
             <Link to={'/'}><Button label='Absentism' raised className='m-2'/></Link>
             </div>
