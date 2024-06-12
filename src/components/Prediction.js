@@ -1,73 +1,129 @@
-const Prediction = () => {
-  const [EmloyeeID, setEmployeeID] = useState('');
-  const [HolidayType, setHolidayType] = useState('');
-  const [startDate, setStartdate] = useState('');
-  const [enddate, setenddate] = useState('');
-  
+import React, { useState } from 'react';
+
+function Prediction() {
+  const [form, setForm] = useState({
+    employeeId: '',
+    holidayType: '',
+    startDate: '',
+    endDate: ''
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    console.log({ EmployeeID, HolidayType, startDate, enddate });
+    console.log('Form Data:', form);
   };
 
   return (
-    <>
-      <div style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <form style={{width: '600px', margin: '2rem', borderRadius: '4px', border: '1px solid #ccc', padding: '56px'}} onSubmit={handleSubmit}>
-          <div style={{ marginBottom: '1rem', display:'flex' }}>
-            <label htmlFor="empId" style={{ display: 'block', margin: '0.5rem' }}>Employee ID:</label>
-            <input type="number" id="empId" value={empId} onChange={(e) => setEmpId(e.target.value)}
-              style={{
-                width: '300px',
-                padding: '0.5rem',
-                marginLeft: '0.5rem',
-                fontSize: '1rem',
-                borderRadius: '4px',
-                border: '1px solid #ccc'
-              }} required/>
+    <div style={styles.app}>
+      <header style={styles.header}>
+        <h1>Leave Prediction Form</h1>
+        <form onSubmit={handleSubmit} style={styles.form}>
+          <div style={styles.formGroup}>
+            <label style={styles.label}>
+              Employee ID:
+              <input
+                type="text"
+                name="employeeId"
+                value={form.employeeId}
+                onChange={handleChange}
+                required
+                style={styles.input}
+              />
+            </label>
           </div>
-          <div style={{ marginBottom: '1rem', display:'flex' }}>
-            <label htmlFor="startYear" style={{ display: 'block', margin: '0.5rem' }}>Start Year: </label>
-            <input type="date" id="startYear" value={startYear} onChange={(e) => setStartYear(e.target.value)}
-              style={{
-                width: '300px',
-                padding: '0.5rem',
-                marginLeft: '0.5rem',
-                fontSize: '1rem',
-                borderRadius: '4px',
-                border: '1px solid #ccc'
-              }} required />
+          <div style={styles.formGroup}>
+            <label style={styles.label}>
+              Holiday Type:
+              <select
+                name="holidayType"
+                value={form.holidayType}
+                onChange={handleChange}
+                required
+                style={styles.input}
+              >
+                <option value="">Select</option>
+                <option value="Annual Leave">Annual Leave</option>
+                <option value="Sick Leave">Sick Leave</option>
+                <option value="Maternity Leave">Maternity Leave</option>
+                <option value="Paternity Leave">Paternity Leave</option>
+              </select>
+            </label>
           </div>
-          <div style={{ marginBottom: '1rem', display:'flex' }}>
-            <label htmlFor="endYear" style={{ display: 'block', margin: '0.5rem' }}>End Year: </label>
-            <input type="date" id="endYear" value={endYear} onChange={(e) => setEndYear(e.target.value)}
-              style={{
-                width: '300px',
-                padding: '0.5rem',
-                marginLeft: '0.5rem',
-                fontSize: '1rem',
-                borderRadius: '4px',
-                border: '1px solid #ccc'
-              }} required />
+          <div style={styles.formGroup}>
+            <label style={styles.label}>
+              Start Date:
+              <input
+                type="date"
+                name="startDate"
+                value={form.startDate}
+                onChange={handleChange}
+                required
+                style={styles.input}
+              />
+            </label>
           </div>
-          <div style={{ marginBottom: '1rem', display: 'flex' }}>
-            <label htmlFor="endMonth" style={{ display: 'block', margin: '0.5rem' }}>End Month: </label>
-            <input type="date" id="endMonth" value={endMonth} onChange={(e) => setEndMonth(e.target.value)}
-              style={{
-                width: '300px',
-                padding: '0.5rem',
-                marginLeft: '0.5rem',
-                fontSize: '1rem',
-                borderRadius: '4px',
-                border: '1px solid #ccc'
-              }} required />
+          <div style={styles.formGroup}>
+            <label style={styles.label}>
+              End Date:
+              <input
+                type="date"
+                name="endDate"
+                value={form.endDate}
+                onChange={handleChange}
+                required
+                style={styles.input}
+              />
+            </label>
           </div>
-          <button type="submit" style={{ padding: '0.5rem 1rem', fontSize: '1rem', backgroundColor: 'var(--primary-color)', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer'}}>Predict</button>
+          <button type="submit" style={styles.button}>Predict</button>
         </form>
-      </div>
-    </>
+      </header>
+    </div>
   );
+}
+
+const styles = {
+  app: {
+    textAlign: 'center',
+  },
+  header: {
+    minHeight: '100vh',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: 'calc(10px + 2vmin)',
+    color: 'white',
+  },
+  form: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+  },
+  formGroup: {
+    margin: '10px 0',
+  },
+  label: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+  },
+  input: {
+    marginLeft: '10px',
+    padding: '5px',
+    fontSize: '16px',
+  },
+  button: {
+    marginTop: '20px',
+    padding: '10px 20px',
+    fontSize: '16px',
+    cursor: 'pointer',
+  }
 };
 
 export default Prediction;
