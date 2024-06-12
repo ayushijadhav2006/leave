@@ -14,9 +14,9 @@ export default function HeadlessDemo() {
         <div className="card flex justify-content-center">
         <Sidebar visible={visible} onHide={() => setVisible(false)}>
             <div className='m-4'>
-            <Link to={'/Main'}><Button label='Decision Making' raised className='m-2'/></Link>
-            <Button label='Leave Pattern' raised className='m-2'/>
-            <Button label='Absentism' raised className='m-2'/>
+            <Link to={'/'}><Button label='Decision Making' raised className='m-2'/></Link>
+            <Link to={'/Forecast'}><Button label='Leave Pattern' raised className='m-2'/></Link>
+            <Link to={'/'}><Button label='Absentism' raised className='m-2'/></Link>
             </div>
         </Sidebar>
     
