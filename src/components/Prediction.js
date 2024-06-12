@@ -1,129 +1,129 @@
+// src/HolidayForm.js
 import React, { useState } from 'react';
 
-function Prediction() {
-  const [form, setForm] = useState({
+const Prediction= () => {
+  const [formData, setFormData] = useState({
     employeeId: '',
     holidayType: '',
     startDate: '',
-    endDate: ''
+    endDate: '',
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form Data:', form);
+    // Handle the form submission logic
+    console.log(formData);
+  };
+
+  const formStyle = {
+    maxWidth: '400px',
+    margin: '0 auto',
+    padding: '20px',
+    border: '1px solid #ccc',
+    borderRadius: '10px',
+    backgroundColor: '#f9f9f9',
+  };
+
+  const formGroupStyle = {
+    marginBottom: '15px',
+  };
+
+  const labelStyle = {
+    display: 'block',
+    marginBottom: '5px',
+    fontWeight: 'bold',
+  };
+
+  const inputStyle = {
+    width: 'calc(100% - 22px)',
+    padding: '10px',
+    border: '1px solid #ccc',
+    borderRadius: '5px',
+    boxSizing: 'border-box',
+  };
+
+  const buttonStyle = {
+    display: 'block',
+    width: '100%',
+    padding: '10px',
+    backgroundColor: '#4CAF50',
+    color: 'white',
+    border: 'none',
+    borderRadius: '5px',
+    fontSize: '16px',
+    cursor: 'pointer',
+  };
+
+  const buttonHoverStyle = {
+    backgroundColor: '#45a049',
   };
 
   return (
-    <div style={styles.app}>
-      <header style={styles.header}>
-        <h1>Leave Prediction Form</h1>
-        <form onSubmit={handleSubmit} style={styles.form}>
-          <div style={styles.formGroup}>
-            <label style={styles.label}>
-              Employee ID:
-              <input
-                type="text"
-                name="employeeId"
-                value={form.employeeId}
-                onChange={handleChange}
-                required
-                style={styles.input}
-              />
-            </label>
-          </div>
-          <div style={styles.formGroup}>
-            <label style={styles.label}>
-              Holiday Type:
-              <select
-                name="holidayType"
-                value={form.holidayType}
-                onChange={handleChange}
-                required
-                style={styles.input}
-              >
-                <option value="">Select</option>
-                <option value="Annual Leave">Annual Leave</option>
-                <option value="Sick Leave">Sick Leave</option>
-                <option value="Maternity Leave">Maternity Leave</option>
-                <option value="Paternity Leave">Paternity Leave</option>
-              </select>
-            </label>
-          </div>
-          <div style={styles.formGroup}>
-            <label style={styles.label}>
-              Start Date:
-              <input
-                type="date"
-                name="startDate"
-                value={form.startDate}
-                onChange={handleChange}
-                required
-                style={styles.input}
-              />
-            </label>
-          </div>
-          <div style={styles.formGroup}>
-            <label style={styles.label}>
-              End Date:
-              <input
-                type="date"
-                name="endDate"
-                value={form.endDate}
-                onChange={handleChange}
-                required
-                style={styles.input}
-              />
-            </label>
-          </div>
-          <button type="submit" style={styles.button}>Predict</button>
-        </form>
-      </header>
-    </div>
+    <form style={formStyle} onSubmit={handleSubmit}>
+      <div style={formGroupStyle}>
+        <label style={labelStyle} htmlFor="employeeId">Employee ID:</label>
+        <input
+          style={inputStyle}
+          type="text"
+          id="employeeId"
+          name="employeeId"
+          value={formData.employeeId}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div style={formGroupStyle}>
+        <label style={labelStyle} htmlFor="holidayType">Holiday Type:</label>
+        <input
+          style={inputStyle}
+          type="text"
+          id="holidayType"
+          name="holidayType"
+          value={formData.holidayType}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div style={formGroupStyle}>
+        <label style={labelStyle} htmlFor="startDate">Start Date:</label>
+        <input
+          style={inputStyle}
+          type="date"
+          id="startDate"
+          name="startDate"
+          value={formData.startDate}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div style={formGroupStyle}>
+        <label style={labelStyle} htmlFor="endDate">End Date:</label>
+        <input
+          style={inputStyle}
+          type="date"
+          id="endDate"
+          name="endDate"
+          value={formData.endDate}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <button
+        type="submit"
+        style={{ ...buttonStyle, ':hover': buttonHoverStyle }}
+      >
+        Predict
+      </button>
+    </form>
   );
-}
-
-const styles = {
-  app: {
-    textAlign: 'center',
-  },
-  header: {
-    minHeight: '100vh',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: 'calc(10px + 2vmin)',
-    color: 'white',
-  },
-  form: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-  },
-  formGroup: {
-    margin: '10px 0',
-  },
-  label: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-  },
-  input: {
-    marginLeft: '10px',
-    padding: '5px',
-    fontSize: '16px',
-  },
-  button: {
-    marginTop: '20px',
-    padding: '10px 20px',
-    fontSize: '16px',
-    cursor: 'pointer',
-  }
 };
 
 export default Prediction;
