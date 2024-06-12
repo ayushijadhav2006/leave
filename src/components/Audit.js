@@ -52,13 +52,13 @@ const Audit= () => {
 
   const buttonStyle = {
     display: 'block',
-    width: '100%',
+    width: '100px',
     padding: '10px',
     backgroundColor: 'var(--primary-color)',
     color: 'white',
     border: 'none',
     borderRadius: '5px',
-    fontSize: '16px',
+    fontSize: '1rem',
     cursor: 'pointer',
   };
 
@@ -116,7 +116,9 @@ const Audit= () => {
           required
         />
       </div>
+      <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
       <button type="submit" style={{ ...buttonStyle, ':hover': buttonHoverStyle }}>Predict</button>
+      </div>
     </form>
   );
 };
