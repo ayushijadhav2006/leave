@@ -53,13 +53,13 @@ const Audit= () => {
 
   const buttonStyle = {
     display: 'block',
-    width: '100%',
+    width: '100px',
     padding: '10px',
     backgroundColor: 'var(--primary-color)',
     color: 'white',
     border: 'none',
     borderRadius: '5px',
-    fontSize: '16px',
+    fontSize: '1rem',
     cursor: 'pointer',
   };
 
@@ -117,10 +117,16 @@ const Audit= () => {
           required
         />
       </div>
+<<<<<<< HEAD
       <div className="bg-primary flex select-none justify-content-center align-items-center shadow-2 border-round p-2 font-bold p-ripple mb-2">
     Predict
     <Ripple />
 </div>
+=======
+      <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+      <button type="submit" style={{ ...buttonStyle, ':hover': buttonHoverStyle }}>Predict</button>
+      </div>
+>>>>>>> 5295aa9ebc284d42e2ef168af7f63caa0b0749f7
     </form>
   );
 };

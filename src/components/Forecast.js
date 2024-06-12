@@ -36,7 +36,6 @@ const Forecast = () => {
                 width: '300px',
                 padding: '0.5rem',
                 marginLeft: '0.5rem',
-                fontSize: '1rem',
                 borderRadius: '4px',
                 border: '1px solid #ccc'
               }} required />
@@ -48,7 +47,6 @@ const Forecast = () => {
                 width: '300px',
                 padding: '0.5rem',
                 marginLeft: '0.5rem',
-                fontSize: '1rem',
                 borderRadius: '4px',
                 border: '1px solid #ccc'
               }} required />
