@@ -133,9 +133,9 @@ const Audit= () => {
                 placeholder="Select a Leave" className="w-full md:w-14rem" checkmark={true} highlightOnSelect={false} />
       </div>
       <div className="bg-primary flex select-none justify-content-center align-items-center shadow-2 border-round p-2 font-bold p-ripple mb-2">
-                Predict
-                <Ripple />
-            </div>
+    Predict
+    <Ripple />
+</div>
     </form>
   );
 };
