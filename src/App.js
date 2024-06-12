@@ -1,9 +1,9 @@
 import "primeflex/primeflex.css";
-import { StyleClass } from 'primereact/styleclass';
+//import { StyleClass } from 'primereact/styleclass';
 import { PrimeReactProvider } from "primereact/api";
 import HeadlessDemo from "./components/Slidebar";
 import {BrowserRouter , Route , Router, Routes} from "react-router-dom";
-import Forecasting from "./components/Main";
+import Forecast from "./components/Forecast";
 
 export default function App() {
   return (
@@ -11,7 +11,7 @@ export default function App() {
         <BrowserRouter>
         <HeadlessDemo/>
         <Routes>  
-          <Route path="/Main" element={<Forecasting/>}/>
+          <Route path="/Forecast" element={<Forecast />}/>
         </Routes>
         </BrowserRouter>
     </PrimeReactProvider>

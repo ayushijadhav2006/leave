@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Forecasting = () => {
+const Forecast = () => {
   const [empId, setEmpId] = useState('');
   const [startYear, setStartYear] = useState('');
   const [endYear, setEndYear] = useState('');
@@ -72,4 +72,4 @@ const Forecasting = () => {
   );
 };
 
-export default Forecasting;
+export default Forecast;
