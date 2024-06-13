@@ -1,18 +1,32 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Button } from 'primereact/button';
+import { Link } from 'react-router-dom';
+        
+        
+const Audit= () => {
+  
+  const [formData, setFormData] = useState({
+    employeeId: '',
+    startYear: '',
+    startMonth: '',
+    endYear: '',
+    endMonth: '',
+  });
 
-const Forecast = () => {
-  const [empId, setEmpId] = useState('');
-  const [startYear, setStartYear] = useState('');
-  const [endYear, setEndYear] = useState('');
-  const [endMonth, setEndMonth] = useState('');
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
 
-  // Function to handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({ empId, startYear, endYear, endMonth });
+    // Handle the form submission logic
+    console.log(formData);
   };
+
   const formStyle = {
     maxWidth: '400px',
     margin: '0 auto',
@@ -41,51 +55,83 @@ const Forecast = () => {
     boxSizing: 'border-box',
   };
 
-  const buttonStyle = {
-    display: 'block',
-    width: '100px',
-    padding: '10px',
-    backgroundColor: 'var(--primary-color)',
-    color: 'white',
-    border: 'none',
-    borderRadius: '5px',
-    fontSize: '1rem',
-    cursor: 'pointer',
-  };
 
-  const buttonHoverStyle = {
-    backgroundColor: 'var(--primary-color)',
-  };
+
   return (
-    <>
-        <form style={formStyle} onSubmit={handleSubmit}>
-          <div style={formGroupStyle}>
-            <label htmlFor="empId" style={labelStyle}>Employee ID:</label>
-            <input type="number" id="empId" value={empId} placeholder='Enter ID' onChange={(e) => setEmpId(e.target.value)} style={inputStyle} required/>
-          </div>
+    <form style={formStyle} onSubmit={handleSubmit}>
+      <div style={formGroupStyle} >
+        <label style={labelStyle} htmlFor="employeeId">Employee ID:</label>
+        <input
+          style={inputStyle}
+          type="number"
+          id="employeeId"
+          name="employeeId"
+          placeholder='Enter ID'
+          value={formData.employeeId}
+          onChange={handleChange}
+          required
+        />
+      </div>
 
-          <div style={formGroupStyle}>
-            <label htmlFor="startYear" style={labelStyle}>Start Year: </label>
-            <input type="date" id="startYear" value={startYear} onChange={(e) => setStartYear(e.target.value)}
-              style={inputStyle} required />
-          </div>
+      <div style={formGroupStyle}>
+        <label style={labelStyle} htmlFor="startYear">Start Year:</label>
+        <input
+          style={inputStyle}
+          type="date"
+          id="startYear"
+          name="startYear"
+          value={formData.startDate}
+          onChange={handleChange}
+          required
+        />
+      </div>
 
-          <div style={formGroupStyle}>
-            <label htmlFor="endYear" style={labelStyle}>End Year: </label>
-            <input type="date" id="endYear" value={endYear} onChange={(e) => setEndYear(e.target.value)} style={inputStyle} required />
-          </div>
+      <div style={formGroupStyle}>
+        <label style={labelStyle} htmlFor="startMonth">Start Month:</label>
+        <input
+          style={inputStyle}
+          type="text"
+          id="startMonth"
+          name="startMonth"
+          placeholder='Enter Month'
+          value={formData.startDate}
+          onChange={handleChange}
+          required
+        />
+      </div>
 
-          <div style={formGroupStyle}>
-            <label htmlFor="endMonth" style={labelStyle}>End Month: </label>
-            <input type="text" id="endMonth" value={endMonth} placeholder='Enter Month' onChange={(e) => setEndMonth(e.target.value)} style={inputStyle} required />
-          </div>
+      <div style={formGroupStyle}>
+        <label style={labelStyle} htmlFor="endYear">End Year:</label>
+        <input
+          style={inputStyle}
+          type="date"
+          id="endYear"
+          name="endYear"
+          value={formData.endDate}
+          onChange={handleChange}
+          required
+        />
+      </div>
 
-          <div className="card flex justify-content-center">
-          <Link to={'/Graph'}><Button label='Predict'/></Link>
-          </div>
-        </form>
-    </>
+      <div style={formGroupStyle}>
+        <label style={labelStyle} htmlFor="endMonth">End Month:</label>
+        <input
+          style={inputStyle}
+          type="text"
+          id="endMonth"
+          name="endMonth"
+          placeholder='Enter Month'
+          value={formData.endDate}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      
+      <div className="card flex justify-content-center">
+      <Link to={'/Graph'}><Button label='Predict'/></Link>
+      </div>
+    </form>
   );
 };
 
-export default Forecast;
+export default Audit;

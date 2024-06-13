@@ -78,7 +78,7 @@ const Count = () => {
         </div>
 
         <div className="card flex justify-content-center">
-            <Link to={'/'}><Button label='Predict' raised className='m-2'/></Link>
+            <Link to={'/PredictCount'}><Button label='Predict' raised className='m-2'/></Link>
         </div>
 
     </form>

@@ -26,7 +26,7 @@ export default function HeadlessDemo() {
                 <h1>Leave Prediction System</h1>
             </div> 
             <div className='md:col-1'>
-            <img src='./welspunWLogo.png' alt='error' width="50px" height="45px" style={{ marginLeft: '24%', paddingTop: '4px', paddingBottom: '2px', marginTop: '14px' }} />
+            <img src='./welspunWLogo.png' alt='error' width="50px" height="45px" style={{ marginLeft: '20%', paddingTop: '4px', paddingBottom: '2px', marginTop: '14px' }} />
             </div>
         </div>    
     </div>

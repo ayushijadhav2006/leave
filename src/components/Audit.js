@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Dropdown } from 'primereact/dropdown';  
 import { Button } from 'primereact/button';
-import { InputMask } from 'primereact/inputmask';
         
         
 const Audit= () => {
@@ -24,7 +23,7 @@ const Audit= () => {
     startDate: '',
     endDate: '',
   });
-
+    
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -67,21 +66,6 @@ const Audit= () => {
     boxSizing: 'border-box',
   };
 
-  const buttonStyle = {
-    display: 'block',
-    width: '100%',
-    padding: '10px',
-    backgroundColor: 'var(--primary-color)',
-    color: 'white',
-    border: 'none',
-    borderRadius: '5px',
-    fontSize: '16px',
-    cursor: 'pointer',
-  };
-
-  const buttonHoverStyle = {
-    backgroundColor: 'var(--primary-color)',
-  };
 
 
   return (
@@ -90,7 +74,7 @@ const Audit= () => {
         <label style={labelStyle} htmlFor="employeeId">Employee ID:</label>
         <input
           style={inputStyle}
-          type="text"
+          type="number"
           id="employeeId"
           name="employeeId"
           placeholder='Enter ID'
@@ -134,10 +118,11 @@ const Audit= () => {
       <div style={formGroupStyle}>
       <label style={labelStyle} htmlFor="Half/Full Day">Half/Full Day:</label>
       <Dropdown value={selectedLeave} onChange={(e) => setLeavespan(e.value)} options={Leave} optionLabel="name" 
-                placeholder="Select a Leave" className="w-full md:w-14rem" checkmark={true} highlightOnSelect={false} />
+        placeholder="Select a Leave" className="w-full md:w-14rem" checkmark={true} highlightOnSelect={false} />
       </div>
+      
       <div className="card flex justify-content-center">
-            <Button label="Predict" />
+      <Button label="Predict" disabled = {!formData.employeeId || !formData.holidayType || !formData.startDate || !formData.endDate} />
       </div>
     </form>
   );
