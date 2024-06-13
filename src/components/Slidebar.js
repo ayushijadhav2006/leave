@@ -13,7 +13,7 @@ export default function HeadlessDemo() {
             <div className='m-4'>
             <Link to={'/Audit'}><Button label='Request Leave Prediction' raised className='m-2'/></Link>
             <Link to={'/Forecast'}><Button label='Request Forecasting' raised className='m-2'/></Link>
-            <Link to={'/'}><Button label='Request Count Prediction' raised className='m-2'/></Link>
+            <Link to={'/Count'}><Button label='Request Count Prediction' raised className='m-2'/></Link>
             </div>
         </Sidebar>
     

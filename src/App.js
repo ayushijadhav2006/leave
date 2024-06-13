@@ -6,10 +6,10 @@ import {BrowserRouter , Route , Router, Routes} from "react-router-dom";
 import Forecast from "./components/Forecast";
 import Graph from "./components/Graph";
 import Audit from "./components/Audit";
-
-// import Prediction from "./components/Prediction";
+import Count from "./components/Count";
 
 export default function App() {
+  
   return (
     <PrimeReactProvider>
         <BrowserRouter>
@@ -18,6 +18,7 @@ export default function App() {
           <Route path="/Forecast" element={<Forecast />}/>
           <Route path="/Graph" element={<Graph />}/>
           <Route path="/Audit" element={<Audit />}/>
+          <Route path="/Count" element={<Count />}/>
 
         </Routes>
         </BrowserRouter>

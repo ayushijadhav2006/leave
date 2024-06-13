@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import { Button } from 'primereact/button';
 
 const Forecast = () => {
   const [empId, setEmpId] = useState('');
@@ -61,7 +61,7 @@ const Forecast = () => {
         <form style={formStyle} onSubmit={handleSubmit}>
           <div style={formGroupStyle}>
             <label htmlFor="empId" style={labelStyle}>Employee ID:</label>
-            <input type="number" id="empId" value={empId} onChange={(e) => setEmpId(e.target.value)} style={inputStyle} required/>
+            <input type="number" id="empId" value={empId} placeholder='Enter ID' onChange={(e) => setEmpId(e.target.value)} style={inputStyle} required/>
           </div>
 
           <div style={formGroupStyle}>
@@ -77,10 +77,12 @@ const Forecast = () => {
 
           <div style={formGroupStyle}>
             <label htmlFor="endMonth" style={labelStyle}>End Month: </label>
-            <input type="text" id="endMonth" value={endMonth} onChange={(e) => setEndMonth(e.target.value)} style={inputStyle} required />
+            <input type="text" id="endMonth" value={endMonth} placeholder='Enter Month' onChange={(e) => setEndMonth(e.target.value)} style={inputStyle} required />
           </div>
 
-          <Link to={'/Graph'}><button type="submit" style={{ ...buttonStyle, ':hover': buttonHoverStyle }}>Predict</button></Link>
+          <div className="card flex justify-content-center">
+          <Link to={'/Graph'}><Button label='Predict'/></Link>
+          </div>
         </form>
     </>
   );

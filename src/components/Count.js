@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Dropdown } from 'primereact/dropdown'
 import { Link } from 'react-router-dom';
+import { Button } from 'primereact/button';
 const Count = () => {
     const [selecteddept, setdepttype] = useState(null);
     const Department = [
-        { name: '', code: 'PL' },
+        { name: 'Data Analytics', code: 'DA' },
         { name: '', code: 'ML' },
         { name: '', code: 'AL' },
         { name: '', code: 'OL' },
@@ -57,21 +58,6 @@ const Count = () => {
     boxSizing: 'border-box',
   };
 
-  const buttonStyle = {
-    display: 'block',
-    width: '100%',
-    padding: '10px',
-    backgroundColor: 'var(--primary-color)',
-    color: 'white',
-    border: 'none',
-    borderRadius: '5px',
-    fontSize: '16px',
-    cursor: 'pointer',
-  };
-
-  const buttonHoverStyle = {
-    backgroundColor: 'var(--primary-color)',
-  };
 
   return (
     <>
@@ -83,15 +69,17 @@ const Count = () => {
 
         <div style={formGroupStyle}>
             <label style={labelStyle} htmlFor="year">Year:</label>
-            <input style={inputStyle} type="number" id="year" name="year" value={formData.year} onChange={handleChange} required />
+            <input style={inputStyle} type="number" id="year" name="year" placeholder='Enter Year' value={formData.year} onChange={handleChange} required />
         </div>
 
         <div style={formGroupStyle}>
             <label style={labelStyle} htmlFor="month">Month:</label>
-            <input style={inputStyle} type="text" id="month" name="month" value={formData.month} onChange={handleChange} required />
+            <input style={inputStyle} type="text" id="month" name="month" placeholder="Enter Month" value={formData.month} onChange={handleChange} required />
         </div>
 
-        <Link to={'/'}><Button label='Request Count Prediction' raised className='m-2'/></Link>
+        <div className="card flex justify-content-center">
+            <Link to={'/'}><Button label='Predict' raised className='m-2'/></Link>
+        </div>
 
     </form>
     </>
