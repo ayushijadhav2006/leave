@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { Dropdown } from 'primereact/dropdown';
-import { Ripple } from 'primereact/ripple';
+import { Dropdown } from 'primereact/dropdown';  
+import { Button } from 'primereact/button';
+import { InputMask } from 'primereact/inputmask';
         
         
 const Audit= () => {
+  
   const [selectedLeave, setLeavespan] = useState(null);
     const Leave = [
         { name: 'Half Day', code: 'HF' },
@@ -81,15 +83,17 @@ const Audit= () => {
     backgroundColor: 'var(--primary-color)',
   };
 
+
   return (
     <form style={formStyle} onSubmit={handleSubmit}>
-      <div style={formGroupStyle}>
+      <div style={formGroupStyle} >
         <label style={labelStyle} htmlFor="employeeId">Employee ID:</label>
         <input
           style={inputStyle}
           type="text"
           id="employeeId"
           name="employeeId"
+          placeholder='Enter ID'
           value={formData.employeeId}
           onChange={handleChange}
           required
@@ -132,10 +136,9 @@ const Audit= () => {
       <Dropdown value={selectedLeave} onChange={(e) => setLeavespan(e.value)} options={Leave} optionLabel="name" 
                 placeholder="Select a Leave" className="w-full md:w-14rem" checkmark={true} highlightOnSelect={false} />
       </div>
-      <div className="bg-primary flex select-none justify-content-center align-items-center shadow-2 border-round p-2 font-bold p-ripple mb-2">
-    Predict
-    <Ripple />
-</div>
+      <div className="card flex justify-content-center">
+            <Button label="Predict" />
+        </div>
     </form>
   );
 };
