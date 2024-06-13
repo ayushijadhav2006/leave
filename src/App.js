@@ -8,6 +8,7 @@ import Graph from "./components/Graph";
 import Audit from "./components/Audit";
 import Count from "./components/Count";
 import PredictCount from "./components/PredictCount";
+import { Welcome } from "./components/Welcome";
 
 export default function App() {
   
@@ -16,6 +17,7 @@ export default function App() {
         <BrowserRouter>
         <HeadlessDemo/>
         <Routes>  
+          <Route path="/" element={<Welcome />}/>
           <Route path="/Forecast" element={<Forecast />}/>
           <Route path="/Graph" element={<Graph />}/>
           <Route path="/Audit" element={<Audit />}/>

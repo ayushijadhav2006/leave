@@ -1,5 +1,5 @@
 import 'primeicons/primeicons.css';
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { Sidebar } from 'primereact/sidebar';
 import { Button } from 'primereact/button';
 import { Link } from 'react-router-dom';
@@ -17,12 +17,12 @@ export default function HeadlessDemo() {
             </div>
         </Sidebar>
     
-        <div style={{ color: 'var(--primary-color-text)', backgroundColor: 'var(--primary-color)', paddingLeft: '2rem', display: "flex", width: "102.1%"}}>
-            <div className="md:col-3 pl-5 pt-3 mt-2" style={{position:"absolute"}}>
+        <div style={{ color: 'var(--primary-color-text)', backgroundColor: 'var(--primary-color)', paddingLeft: '2rem', display: "flex", width: "100%"}}>
+            <div className="md:col-3 pl-5 pt-2 mt-3" style={{position:"absolute"}}>
                 <Button icon="pi pi-arrow-right" onClick={() => setVisible(true)} />
             </div>
     
-            <div className="md:col-2" style={{width: "1380px", display:"flex", alignItems:"center", justifyContent:"center"}}>
+            <div className="md:col-2" style={{width: "1370px", display:"flex", alignItems:"center", justifyContent:"center"}}>
                 <h1>Leave Prediction System</h1>
             </div> 
             <div className='md:col-1'>
