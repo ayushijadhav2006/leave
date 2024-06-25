@@ -17,7 +17,7 @@ export default function HeadlessDemo() {
     
         <div className="overflow-y-auto" style={{ color: 'var(--primary-color-text)'}}>
 
-                <ul className="list-none p-2 m-0 sidebar">
+                <ul className="list-none p-4 m-0 sidebar">
 
                 <li><a href="#">Request Leave Prediction</a></li>
                 <li><a href="#">Request Forecasting</a></li>
