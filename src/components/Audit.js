@@ -42,9 +42,9 @@ const Audit= () => {
   };
 
   const formStyle = {
-    maxWidth: '400px',
+    maxWidth: '800px',
     margin: '0 auto',
-    padding: '20px',
+    padding: '32px',
     border: '1px solid #ccc',
     borderRadius: '10px',
     backgroundColor: '#f9f9f9',
@@ -53,29 +53,32 @@ const Audit= () => {
 
   const formGroupStyle = {
     marginBottom: '15px',
+    alignItems: 'center',
+    padding: '8px',
   };
 
   const labelStyle = {
-    display: 'block',
     marginBottom: '5px',
     fontWeight: 'bold',
   };
 
   const inputStyle = {
-    width: 'calc(100% - 22px)',
+    width: '100%',
     padding: '10px',
     border: '1px solid #ccc',
     borderRadius: '5px',
     boxSizing: 'border-box',
+    marginTop: '8px',
   };
-
 
 
   return (
     <form style={formStyle} onSubmit={handleSubmit}>
+      <div className='flex '>
       <div style={formGroupStyle} >
-        <label style={labelStyle} htmlFor="employeeId">Employee ID:</label>
+        <label style={labelStyle} htmlFor="employeeId" className='md:col-2'> Employee ID</label>
         <input
+          className='mt-2 ml-3'
           style={inputStyle}
           type="number"
           id="employeeId"
@@ -89,14 +92,29 @@ const Audit= () => {
 
 
       <div style={formGroupStyle} >
-        <label style={labelStyle}htmlFor="holidayType">Holiday Type:</label>
-      <Dropdown value={selectedholiday} onChange={(e) => setholidaytype(e.value)} options={Holiday} optionLabel="name" 
-                placeholder="Select a Type" className="w-full md:w-14rem" checkmark={true} highlightOnSelect={false} />
+        <div className='flex-row'>
+          <div style={{ flex: '1', marginLeft: '40px'}}>
+            <label style={labelStyle} htmlFor="holidayType" className='md:col-1'>Holiday Type</label>
+          </div>
+          <div style={{ flex: '2', marginLeft: '40px'}}>
+            <Dropdown 
+            value={selectedholiday} 
+            onChange={(e) => setholidaytype(e.value)} 
+            options={Holiday} optionLabel="name" 
+            placeholder="Select a Type" 
+            className="w-400px md:w-20rem ml-3 mt-2" 
+            checkmark={true} 
+            highlightOnSelect={false} />
+          </div>
+        </div>
       </div>
+    </div>
 
+      <div className='flex'>
       <div style={formGroupStyle}>
-        <label style={labelStyle} htmlFor="startDate">Start Date:</label>
+        <label style={labelStyle} htmlFor="startDate" className='md:col-2'>From Date</label>
         <input
+          className='mt-2 ml-3 w-19rem'
           style={inputStyle}
           type="date"
           id="startDate"
@@ -107,8 +125,9 @@ const Audit= () => {
         />
       </div>
       <div style={formGroupStyle}>
-        <label style={labelStyle} htmlFor="endDate">End Date:</label>
+        <label style={labelStyle} htmlFor="endDate" className='md:col-1'>To Date</label>
         <input
+          className='mt-2 ml-3 w-20rem'
           style={inputStyle}
           type="date"
           id="endDate"
@@ -118,15 +137,30 @@ const Audit= () => {
           required
         />
       </div>
-      <div style={formGroupStyle}>
-      <label style={labelStyle} htmlFor="Half/Full Day">Half/Full Day:</label>
-      <Dropdown value={selectedLeave} onChange={(e) => setLeavespan(e.value)} options={Leave} optionLabel="name" 
-        placeholder="Select a Leave" className="w-full md:w-14rem" checkmark={true} highlightOnSelect={false} />
       </div>
-      
-      <div className="card flex justify-content-center">
-      <Button label="Predict" disabled = {!formData.employeeId || !formData.holidayType || !formData.startDate || !formData.endDate} />
+
+    <div style={formGroupStyle} >
+      <div className='flex-row'>
+        <div style={{ flex: '1'}}>
+          <label style={labelStyle} htmlFor="Half/Full Day" className='m-2'>Half/Full Day</label>
+        </div>
+        <div style={{ flex: '2', margin: '8px'}}>
+          <Dropdown
+            value={selectedLeave}
+            onChange={(e) => setLeavespan(e.value)}
+            options={Leave}
+            optionLabel="name"
+            placeholder="Select a Leave"
+            className="w-full md:w-20rem m-1"
+            checkmark={true}
+            highlightOnSelect={false}
+          />
+        </div>
       </div>
+      <div className="md:col-1">
+        <Button label="Predict" onClick={handleSubmit} className='w-20rem m-2'/>
+      </div>
+    </div>
     </form>
   );
 };
