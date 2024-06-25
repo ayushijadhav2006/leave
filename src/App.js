@@ -2,6 +2,7 @@ import "primeflex/primeflex.css";
 //import { StyleClass } from 'primereact/styleclass';
 import { PrimeReactProvider } from "primereact/api";
 import HeadlessDemo from "./components/Slidebar";
+import Header from "./components/Header";
 import {BrowserRouter , Route , Routes} from "react-router-dom";
 import Forecast from "./components/Forecast";
 import Graph from "./components/Graph";
@@ -15,7 +16,9 @@ export default function App() {
   return (
     <PrimeReactProvider>
         <BrowserRouter>
-        <HeadlessDemo/>
+        <Header />
+        <HeadlessDemo />
+        <div style={{ marginLeft: '200px', padding: '20px' }}>
         <Routes>  
           <Route path="/" element={<Welcome />}/>
           <Route path="/Forecast" element={<Forecast />}/>
@@ -25,6 +28,7 @@ export default function App() {
           <Route path="/PredictCount" element={<PredictCount />}/>
 
         </Routes>
+        </div>
         </BrowserRouter>
     </PrimeReactProvider>
   )

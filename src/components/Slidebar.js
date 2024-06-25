@@ -1,36 +1,29 @@
 import 'primeicons/primeicons.css';
 import React, { useState } from 'react';
-import { Sidebar } from 'primereact/sidebar';
-import { Button } from 'primereact/button';
-import { Link } from 'react-router-dom';
+
+import './Sidebar.css';
 
 export default function HeadlessDemo() {
-    const [visible, setVisible] = useState(false);
     return (
-    <>
-        <div className="card flex justify-content-center">
+        <>
+        {/* <div className="card flex justify-content-center">
         <Sidebar visible={visible} onHide={() => setVisible(false)}>
             <div className='m-4'>
             <Link to={'/Audit'}><Button label='Request Leave Prediction' raised className='m-2'/></Link>
             <Link to={'/Forecast'}><Button label='Request Forecasting' raised className='m-2'/></Link>
             <Link to={'/Count'}><Button label='Request Count Prediction' raised className='m-2'/></Link>
             </div>
-        </Sidebar>
+        </Sidebar> */}
     
-        <div style={{ color: 'var(--primary-color-text)', backgroundColor: 'var(--primary-color)', paddingLeft: '2rem', display: "flex", width: "100%"}}>
-            <div className="md:col-3 pl-5 pt-2 mt-3" style={{position:"absolute"}}>
-                <Button icon="pi pi-arrow-right" onClick={() => setVisible(true)} />
-            </div>
-    
-            <div className="md:col-2" style={{width: "1370px", display:"flex", alignItems:"center", justifyContent:"center"}}>
-                <h1>Leave Prediction System</h1>
-            </div> 
-            <div className='md:col-1'>
-            <img src='./welspunWLogo.png' alt='error' width="50px" height="45px" style={{ marginLeft: '20%', paddingTop: '4px', paddingBottom: '2px', marginTop: '14px' }} />
-            </div>
-        </div>    
+        <div className="overflow-y-auto" style={{ color: 'var(--primary-color-text)'}}>
+
+                <ul className="list-none p-2 m-0 sidebar">
+
+                <li><a href="#">Request Leave Prediction</a></li>
+                <li><a href="#">Request Forecasting</a></li>
+                <li><a href="#">Request Count Prediction</a></li>
+                </ul>
     </div>
-</>
+    </>
     )
 }
-        
