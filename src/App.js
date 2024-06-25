@@ -1,5 +1,5 @@
 import "primeflex/primeflex.css";
-//import { StyleClass } from 'primereact/styleclass';
+import './components/Sidebar.css';
 import { PrimeReactProvider } from "primereact/api";
 import HeadlessDemo from "./components/Slidebar";
 import Header from "./components/Header";

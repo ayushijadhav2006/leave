@@ -1,27 +1,16 @@
 import 'primeicons/primeicons.css';
-import React, { useState } from 'react';
-
+import React from 'react';
 import './Sidebar.css';
+import { Link } from 'react-router-dom';
 
 export default function HeadlessDemo() {
     return (
         <>
-        {/* <div className="card flex justify-content-center">
-        <Sidebar visible={visible} onHide={() => setVisible(false)}>
-            <div className='m-4'>
-            <Link to={'/Audit'}><Button label='Request Leave Prediction' raised className='m-2'/></Link>
-            <Link to={'/Forecast'}><Button label='Request Forecasting' raised className='m-2'/></Link>
-            <Link to={'/Count'}><Button label='Request Count Prediction' raised className='m-2'/></Link>
-            </div>
-        </Sidebar> */}
-    
         <div className="overflow-y-auto" style={{ color: 'var(--primary-color-text)'}}>
-
                 <ul className="list-none p-4 m-0 sidebar">
-
-                <li><a href="#">Request Leave Prediction</a></li>
-                <li><a href="#">Request Forecasting</a></li>
-                <li><a href="#">Request Count Prediction</a></li>
+                    <li><Link to='/Audit'>Request Leave Prediction</Link></li>
+                    <li><Link to='/Forecast'>Request Forecasting</Link></li>
+                    <li><Link to='/Count'>Request Count Prediction</Link></li>
                 </ul>
     </div>
     </>
