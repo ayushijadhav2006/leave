@@ -14,20 +14,24 @@ const Audit= () => {
         { name: 'Full day', code: 'FH' },
     ];
     const [selectedholiday, setholidaytype] = useState(null);
+    
     const Holiday = [
         { name: 'Paternity Leave', code: 'PL' },
         { name: 'Maternity Leave', code: 'ML' },
         { name: 'Annual Leave', code: 'AL' },
         { name: 'Outdoor Leave', code: 'OL' },
     ];
-  const [formData, setFormData] = useState({
+  
+    const [formData, setFormData] = useState({
     employeeId: '',
     holidayType: '',
     startDate: '',
     endDate: '',
+    half_full : ''
   });
     
   const handleChange = (e) => {
+    debugger;
     const { name, value } = e.target;
     setFormData({
       ...formData,
@@ -99,7 +103,7 @@ const Audit= () => {
           <div style={{ flex: '2', marginLeft: '40px'}}>
             <Dropdown 
             value={selectedholiday} 
-            onChange={(e) => setholidaytype(e.value)} 
+            onChange={(e) => setholidaytype(e.target.value)} 
             options={Holiday} optionLabel="name" 
             placeholder="Select a Type" 
             className="w-400px md:w-20rem ml-3 mt-2" 

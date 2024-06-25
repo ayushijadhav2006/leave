@@ -53,6 +53,7 @@ const Audit= () => {
     border: '1px solid #ccc',
     borderRadius: '5px',
     boxSizing: 'border-box',
+    margin: '4px'
   };
 
 
@@ -60,7 +61,7 @@ const Audit= () => {
   return (
     <form style={formStyle} onSubmit={handleSubmit}>
       <div style={formGroupStyle} >
-        <label style={labelStyle} htmlFor="employeeId">Employee ID:</label>
+        <label style={labelStyle} htmlFor="employeeId">Employee ID</label>
         <input
           style={inputStyle}
           type="number"
@@ -73,60 +74,6 @@ const Audit= () => {
         />
       </div>
 
-      <div style={formGroupStyle}>
-        <label style={labelStyle} htmlFor="startYear">Start Year:</label>
-        <input
-          style={inputStyle}
-          type="date"
-          id="startYear"
-          name="startYear"
-          value={formData.startDate}
-          onChange={handleChange}
-          required
-        />
-      </div>
-
-      <div style={formGroupStyle}>
-        <label style={labelStyle} htmlFor="startMonth">Start Month:</label>
-        <input
-          style={inputStyle}
-          type="text"
-          id="startMonth"
-          name="startMonth"
-          placeholder='Enter Month'
-          value={formData.startDate}
-          onChange={handleChange}
-          required
-        />
-      </div>
-
-      <div style={formGroupStyle}>
-        <label style={labelStyle} htmlFor="endYear">End Year:</label>
-        <input
-          style={inputStyle}
-          type="date"
-          id="endYear"
-          name="endYear"
-          value={formData.endDate}
-          onChange={handleChange}
-          required
-        />
-      </div>
-
-      <div style={formGroupStyle}>
-        <label style={labelStyle} htmlFor="endMonth">End Month:</label>
-        <input
-          style={inputStyle}
-          type="text"
-          id="endMonth"
-          name="endMonth"
-          placeholder='Enter Month'
-          value={formData.endDate}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      
       <div className="card flex justify-content-center">
       <Link to={'/Graph'}><Button label='Predict'/></Link>
       </div>
